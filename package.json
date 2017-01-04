@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/lethain/systemsandpapers-npm/issues"
   },
+  "dependencies": {
+      "request": "latest",
+      "request-promise": "latest"
+  },  
   "homepage": "https://github.com/lethain/systemsandpapers-npm#readme"
 }

@@ -32,7 +32,7 @@ function download(sid) {
 
 function upload(sid, data, token) {
     var url = `https://systemsandpapers.com/systems/${sid}/output/?token=${token}`
-    return rp({uri: url, method: 'POST', body: data})
+    return rp({uri: url, method: 'POST', body: data, simple: false})
 }
 
 function attempt(sid, token, solver) {
@@ -42,10 +42,7 @@ function attempt(sid, token, solver) {
 	consoleAll("Proposed Solution", solution)
 	upload(sid, solution, token)
 	    .then(function(html) {
-		consoleAll("Success", html)
-	    }).catch(function(error) {
-		msg = error.message.slice(4).replace("\\n", "\n")
-		consoleAll("Failure", msg)
+		consoleAll("Response", html)
 	    });
     });
 }
